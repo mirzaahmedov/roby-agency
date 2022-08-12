@@ -1,0 +1,122 @@
+@use "_colors.scss" as colors;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+*::before,
+*,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 19px;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+  min-height: 134px;
+  margin: 30px auto 45px auto;
+
+  .header__contact {
+    font-size: 18px;
+    line-height: 20px;
+
+    .contact__name {
+      margin-top: 9px;
+      color: colors.$textSecondary;
+    }
+    .contact__email {
+      margin-top: 15px;
+    }
+  }
+
+  .header__logo {
+    width: 410px;
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    transform: translateX(-50%);
+  }
+
+  .header__nav {
+    .nav__list {
+      list-style-type: none;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      gap: 20px;
+
+      .nav__item {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+
+        .nav__link {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+
+.intro-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .intro__image {
+    position: absolute;
+    top: ;
+    width: 50vw;
+  }
+
+  .intro__content {
+    .intro__headline {
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 60px;
+      text-transform: uppercase;
+
+      small {
+        font-weight: normal;
+        font-size: 49px;
+      }
+    }
+  }
+}
