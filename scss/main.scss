@@ -35,6 +35,8 @@ body {
 body {
   font-size: 19px;
   font-family: "Roboto", sans-serif;
+  color: colors.$textMain;
+  background-color: colors.$backgroundMain;
   scroll-behavior: smooth;
 }
 
@@ -42,6 +44,31 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: 1200px;
+}
+
+.button {
+  appearance: none;
+  border: none;
+  background: none;
+  border: 1px solid colors.$textMain;
+  color: colors.$backgroundMain;
+  background-color: colors.$textMain;
+}
+.button--secondary {
+  border: 1px solid colors.$textMain;
+  color: colors.$textMain;
+  background-color: colors.$backgroundMain;
+}
+.button--circle {
+  width: 138px;
+  height: 138px;
+  padding: 30px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 50%;
 }
 
 .header {
@@ -72,6 +99,7 @@ body {
     left: 50%;
     top: 60px;
     transform: translateX(-50%);
+    z-index: 100;
   }
 
   .header__nav {
@@ -100,13 +128,26 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  .intro__image {
-    position: absolute;
-    top: ;
-    width: 50vw;
+  .intro__image__container {
+    .intro__image {
+      // position: absolute;
+      // left: 0;
+      // z-index: -1;
+      // width: 50vw;
+
+      left: 100%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      max-width: 50vw;
+      position: relative;
+      // right: 50%;
+      width: 50vw;
+    }
   }
 
   .intro__content {
+    padding: 120px 0 30px 60px;
+
     .intro__headline {
       font-weight: 700;
       font-size: 60px;
@@ -117,6 +158,23 @@ body {
         font-weight: normal;
         font-size: 49px;
       }
+    }
+
+    .intro__button {
+      margin-top: 90px;
+    }
+  }
+}
+
+.customers-section {
+  .customers__headline {
+    font-size: 27px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: uppercase;
+
+    small {
+      font-size: 22px;
     }
   }
 }
