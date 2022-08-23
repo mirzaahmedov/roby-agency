@@ -7,12 +7,30 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="section header">
       <div class="header__contact">
         <h1 class="contact__name">A creative agency based in Helsinki.</h1>
         <p class="contact__email">hello@robi.com</p>
       </div>
       <img class="header__logo" src="assets/logo.svg" alt="Roby logo" />
+      <menu class="header__menu">
+        <span class="menu__icon"><span></span></span>
+        <ul class="menu__list">
+          <li class="menu__item"><a href="/" class="menu__link">Home</a></li>
+          <li class="menu__item">
+            <a href="/about" class="menu__link">About</a>
+          </li>
+          <li class="menu__item">
+            <a href="/news" class="menu__link">News</a>
+          </li>
+          <li class="menu__item">
+            <a href="/contact" class="menu__link">Contact</a>
+          </li>
+          <li class="menu__item">
+            <a href="/cart" class="menu__link">Cart</a>
+          </li>
+        </ul>
+      </menu>
       <nav class="header__nav">
         <ul class="nav__list">
           <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
@@ -36,7 +54,7 @@
         <img src="assets/intro.jpg" alt="man writing" class="intro__image" />
       </div>
       <div class="intro__content">
-        <h2 class="intro__headline">
+        <h2 class="intro__headline headline">
           “We believe that <small>the power of design</small> helps businesses
         </h2>
         <button class="button button--circle intro__button">
@@ -45,7 +63,7 @@
       </div>
     </section>
     <section class="section customers-section">
-      <h3 class="customers__headline">
+      <h3 class="customers__headline headline">
         We partner with <small>forward-thinking</small> startups.
       </h3>
       <img
@@ -55,8 +73,8 @@
       />
     </section>
     <section class="section about-section">
-      <h1 class="about__headline">
-        THE PERFECT
+      <h1 class="about__headline headline">
+        THE PERFECT<br />
         <small>AGENCY FOR YOUR BRAND</small>
       </h1>
       <div class="about__content">
@@ -107,7 +125,7 @@
       </div>
     </section>
     <section class="section works-section">
-      <h2 class="works__headline">selected <small>work</small></h2>
+      <h2 class="works__headline headline">selected <small>work</small></h2>
       <div class="works__grid">
         <div class="works__column">
           <div class="works__work">
@@ -147,7 +165,7 @@
     </section>
     <section class="section services-section">
       <div class="services__content">
-        <h2 class="services__headline">
+        <h2 class="services__headline headline">
           Improve <small>your brand</small> with an awesome site.
         </h2>
         <div class="services__list">
@@ -176,7 +194,7 @@
       </div>
     </section>
     <section class="section feedbacks-section">
-      <h2 class="feedbacks__headline">
+      <h2 class="feedbacks__headline headline">
         What
         <small>they</small>
         think
@@ -289,7 +307,9 @@
     <section class="skills-section">
       <div class="section">
         <div class="skills__content">
-          <h2 class="skills__headline">Our <small>team</small> Skills</h2>
+          <h2 class="skills__headline headline">
+            Our <small>team</small> Skills
+          </h2>
           <div class="skills__list">
             <div class="skills__skill">
               <div class="skill__name">Graphic Design <span>80%</span></div>
@@ -322,7 +342,7 @@
       </div>
     </section>
     <section class="section facts-section">
-      <h2 class="facts__headline">Fun <small>Facts</small></h2>
+      <h2 class="facts__headline headline">Fun <small>Facts</small></h2>
       <div class="facts__list">
         <div class="facts__fact">
           <img src="/assets/fact1.svg" alt="fact 1" class="fact__icon" />
@@ -339,13 +359,14 @@
           </div>
         </div>
         <div class="facts__fact">
+          <img src="/assets/fact3.svg" alt="fact 1" class="fact__icon" />
           <div class="fact__details">
             <h6 class="fact__count">15</h6>
             <p class="fact__description">Hero's member</p>
           </div>
         </div>
         <div class="facts__fact">
-          <img src="/assets/fact3.svg" alt="fact 1" class="fact__icon" />
+          <img src="/assets/fact4.svg" alt="fact 1" class="fact__icon" />
           <div class="fact__details">
             <h6 class="fact__count">100+</h6>
             <p class="fact__description">Cups of coffee</p>
@@ -355,7 +376,7 @@
     </section>
     <section class="section blog-section">
       <div class="blog__header">
-        <h2 class="blog__headline">Our <small>Blog</small></h2>
+        <h2 class="blog__headline headline">Our <small>Blog</small></h2>
         <button class="button button--circle intro__button">
           View All Post
         </button>
@@ -408,7 +429,7 @@
     <section class="cta-section">
       <div class="section">
         <div class="cta__text">
-          <h2 class="cta__headline">Let's <small>Talk</small></h2>
+          <h2 class="cta__headline headline">Let's <small>Talk</small></h2>
           <p class="cta__subheadline">Feel free to contact us</p>
         </div>
         <button class="button button--circle button--secondary">
@@ -486,9 +507,30 @@
       </p>
     </footer>
     <script>
-      document.querySelectorAll(".halfscreen").forEach((element) => {
-        element.style.width = document.body.clientWidth / 2 + "px";
-        element.style.maxWidth = document.body.clientWidth / 2 + "px";
+      function resizeImages() {
+        const styleTag = document.querySelector("style.injected")
+          ? document.querySelector("style.injected")
+          : document.createElement("style");
+
+        styleTag.className = "injected";
+
+        styleTag.textContent = `
+          .halfscreen {
+            width: ${document.body.clientWidth / 2}px !important;
+            max-width: ${document.body.clientWidth / 2}px !important;
+          }
+        `;
+
+        document.body.appendChild(styleTag);
+      }
+
+      window.onload = resizeImages;
+      window.onresize = resizeImages;
+
+      document.querySelectorAll(".menu__icon").forEach((menu) => {
+        menu.addEventListener("click", function () {
+          menu.classList.toggle("open");
+        });
       });
     </script>
   </body>
